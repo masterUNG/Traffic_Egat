@@ -1,9 +1,12 @@
 package appewtc.masterung.traffic;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by masterUNG on 8/25/15 AD.
@@ -38,6 +41,18 @@ public class MyAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
-    }
+
+        LayoutInflater objLayoutInflater = (LayoutInflater) objContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View objView1 = objLayoutInflater.inflate(R.layout.traffic_listview, viewGroup, false);
+
+        //Show Icon
+        ImageView iconImageView = (ImageView) objView1.findViewById(R.id.imvIcon);
+        iconImageView.setImageResource(iconInts[i]);
+
+        //Show Title
+        TextView titleTextView = (TextView) objView1.findViewById(R.id.txtTitle);
+        titleTextView.setText(titleStrings[i]);
+
+        return objView1;
+    }   // getView
 }   // Main Class
